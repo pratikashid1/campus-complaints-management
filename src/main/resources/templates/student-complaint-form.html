@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CampusCare | GHRISTU</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+    <link rel="icon" type="image/png" th:href="@{/images/campuscare-logo.png}">
+</head>
+<body class="app-body" data-page="student-new-complaint">
+<div class="app-layout">
+    <aside class="app-sidebar">
+        <a class="site-brand sidebar-brand" href="/student/dashboard"><span class="brand-mark brand-mark-small">CC</span><span>CampusCare</span></a>
+        <nav class="app-nav"><a class="nav-link" href="/student/dashboard"><span>&#8962;</span>Dashboard</a><a class="nav-link is-active" href="/student/complaints/new"><span>&#43;</span>Submit Complaint</a><a class="nav-link" href="/student/complaints"><span>&#9670;</span>My Complaints</a><a class="nav-link" href="/student/profile"><span>&#9678;</span>Profile</a></nav>
+        <button class="nav-link nav-button" data-logout type="button"><span>&#8618;</span>Logout</button>
+    </aside>
+    <main class="app-main">
+        <header class="mobile-app-header"><a class="site-brand" href="/student/dashboard"><span class="brand-mark brand-mark-small">CC</span>CampusCare</a><button class="mobile-menu-button" data-menu-toggle type="button">&#9776;</button></header>
+        <section class="page-heading"><div><p class="eyebrow">Maintenance support</p><h1>Submit a complaint</h1><p>Tell us what needs attention on campus.</p></div></section>
+        <section class="content-panel form-panel">
+            <div class="feedback feedback-error" data-feedback role="alert" hidden></div>
+            <div class="feedback feedback-success" data-success role="status" hidden></div>
+            <form id="complaint-form" class="complaint-form" novalidate>
+                <div class="form-section-title"><span>01</span><div><h2>Complaint details</h2><p>Give us enough information to understand the issue.</p></div></div>
+                <div class="form-grid">
+                    <div class="form-field form-field-wide"><label for="complaint-title">Complaint title</label><input id="complaint-title" name="title" maxlength="255" placeholder="e.g. Water leakage in laboratory" required><span class="field-error" data-error-for="title"></span></div>
+                    <div class="form-field form-field-wide"><label for="complaint-description">Description</label><textarea id="complaint-description" name="description" rows="5" placeholder="Describe what happened and where..." required></textarea><span class="field-error" data-error-for="description"></span></div>
+                    <div class="form-field"><label for="complaint-category">Category</label><select id="complaint-category" name="categoryId" required><option value="">Loading categories...</option></select><span class="field-error" data-error-for="categoryId"></span></div>
+                    <div class="form-field"><label for="complaint-location">Location</label><select id="complaint-location" name="locationId" required><option value="">Loading locations...</option></select><span class="field-error" data-error-for="locationId"></span></div>
+                    <div class="form-field"><label for="complaint-priority">Priority</label><select id="complaint-priority" name="priority"><option value="LOW">Low</option><option value="MEDIUM" selected>Medium</option><option value="HIGH">High</option><option value="URGENT">Urgent</option></select></div>
+                </div>
+                <div class="form-actions"><a class="button button-outline" href="/student/complaints">Cancel</a><button class="button button-primary" type="submit"><span class="button-label">Submit complaint</span><span class="button-spinner" aria-hidden="true"></span></button></div>
+            </form>
+        </section>
+    </main>
+</div>
+<script th:src="@{/js/student.js}"></script>
+</body>
+</html>

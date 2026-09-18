@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CampusCare | GHRISTU</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+    <link rel="icon" type="image/png" th:href="@{/images/campuscare-logo.png}">
+</head>
+<body class="app-body" data-page="student-complaint-details">
+<div class="app-layout">
+    <aside class="app-sidebar">
+        <a class="site-brand sidebar-brand" href="/student/dashboard"><span class="brand-mark brand-mark-small">CC</span><span>CampusCare</span></a>
+        <nav class="app-nav"><a class="nav-link" href="/student/dashboard"><span>&#8962;</span>Dashboard</a><a class="nav-link" href="/student/complaints/new"><span>&#43;</span>Submit Complaint</a><a class="nav-link is-active" href="/student/complaints"><span>&#9670;</span>My Complaints</a><a class="nav-link" href="/student/profile"><span>&#9678;</span>Profile</a></nav>
+        <button class="nav-link nav-button" data-logout type="button"><span>&#8618;</span>Logout</button>
+    </aside>
+    <main class="app-main">
+        <header class="mobile-app-header"><a class="site-brand" href="/student/dashboard"><span class="brand-mark brand-mark-small">CC</span>CampusCare</a><button class="mobile-menu-button" data-menu-toggle type="button">&#9776;</button></header>
+        <a class="back-link" href="/student/complaints">&#8592; Back to my complaints</a>
+        <div class="feedback feedback-error" data-feedback role="alert" hidden></div>
+        <div class="loading-state" data-loading>Loading complaint...</div>
+        <section class="content-panel details-panel" data-details hidden>
+            <div class="details-top"><div><p class="eyebrow">Complaint details</p><h1 data-detail="title"></h1><span class="complaint-number" data-detail="complaintNumber"></span></div><span class="status-badge large" data-detail-status></span></div>
+            <div class="details-grid"><div><span class="detail-label">Category</span><strong data-detail="category"></strong></div><div><span class="detail-label">Location</span><strong data-detail="location"></strong></div><div><span class="detail-label">Priority</span><strong data-detail-priority></strong></div><div><span class="detail-label">Created</span><strong data-detail="createdAt"></strong></div><div><span class="detail-label">Last updated</span><strong data-detail="updatedAt"></strong></div></div>
+            <div class="description-block"><span class="detail-label">Description</span><p data-detail="description"></p></div>
+        </section>
+        <section class="content-panel status-panel" data-history-panel hidden><div class="panel-heading"><div><p class="eyebrow">Progress</p><h2>Status history</h2></div></div><div class="status-timeline" data-status-timeline></div></section>
+    </main>
+</div>
+<script th:src="@{/js/student.js}"></script>
+</body>
+</html>

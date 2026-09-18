@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CampusCare | GHRISTU</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+    <link rel="icon" type="image/png" th:href="@{/images/campuscare-logo.png}">
+</head>
+<body class="app-body" data-page="student-complaints">
+<div class="app-layout">
+    <aside class="app-sidebar">
+        <a class="site-brand sidebar-brand" href="/student/dashboard"><span class="brand-mark brand-mark-small">CC</span><span>CampusCare</span></a>
+        <nav class="app-nav"><a class="nav-link" href="/student/dashboard"><span>&#8962;</span>Dashboard</a><a class="nav-link" href="/student/complaints/new"><span>&#43;</span>Submit Complaint</a><a class="nav-link is-active" href="/student/complaints"><span>&#9670;</span>My Complaints</a><a class="nav-link" href="/student/profile"><span>&#9678;</span>Profile</a></nav>
+        <button class="nav-link nav-button" data-logout type="button"><span>&#8618;</span>Logout</button>
+    </aside>
+    <main class="app-main">
+        <header class="mobile-app-header"><a class="site-brand" href="/student/dashboard"><span class="brand-mark brand-mark-small">CC</span>CampusCare</a><button class="mobile-menu-button" data-menu-toggle type="button">&#9776;</button></header>
+        <section class="page-heading"><div><p class="eyebrow">Your requests</p><h1>My complaints</h1><p>Review every maintenance request submitted from your account.</p></div><a class="button button-primary heading-action" href="/student/complaints/new">&#43; Submit New Complaint</a></section>
+        <div class="feedback feedback-error" data-feedback role="alert" hidden></div>
+        <section class="content-panel">
+            <div class="panel-heading"><div><h2>Complaint history</h2><span class="panel-count" data-count>Loading...</span></div></div>
+            <div class="loading-state" data-loading>Loading complaints...</div>
+            <div class="empty-state" data-empty hidden><span class="empty-icon">&#43;</span><h3>No complaints found</h3><p>Your submitted complaints will appear here.</p><a class="button button-primary" href="/student/complaints/new">Submit a complaint</a></div>
+            <div class="complaints-table-wrap"><table class="complaints-table"><thead><tr><th>Complaint</th><th>Category</th><th>Location</th><th>Priority</th><th>Status</th><th>Created</th><th></th></tr></thead><tbody data-complaint-rows></tbody></table></div>
+        </section>
+    </main>
+</div>
+<script th:src="@{/js/student.js}"></script>
+</body>
+</html>

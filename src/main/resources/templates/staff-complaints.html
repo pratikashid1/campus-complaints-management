@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CampusCare | GHRISTU</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+    <link rel="icon" type="image/png" th:href="@{/images/campuscare-logo.png}">
+</head>
+<body class="app-body" data-page="staff-complaints">
+<div class="app-layout">
+    <aside class="app-sidebar">
+        <a class="site-brand sidebar-brand" href="/staff/dashboard"><span class="brand-mark brand-mark-small">CC</span><span>CampusCare</span></a>
+        <nav class="app-nav" aria-label="Staff navigation">
+            <a class="nav-link" href="/staff/dashboard"><span>&#8962;</span>Dashboard</a>
+            <a class="nav-link is-active" href="/staff/complaints"><span>&#9670;</span>Complaints</a>
+            <a class="nav-link" href="/staff/complaints"><span>&#8644;</span>Assign Worker</a>
+            <a class="nav-link" href="/staff/profile"><span>&#9678;</span>Profile</a>
+        </nav>
+        <button class="nav-link nav-button" data-logout type="button"><span>&#8618;</span>Logout</button>
+    </aside>
+    <main class="app-main">
+        <header class="mobile-app-header"><a class="site-brand" href="/staff/dashboard"><span class="brand-mark brand-mark-small">CC</span>CampusCare</a><button class="mobile-menu-button" data-menu-toggle type="button">&#9776;</button></header>
+        <section class="page-heading"><div><p class="eyebrow">Operations</p><h1>Complaints</h1><p>Review every maintenance request in one place.</p></div></section>
+        <div class="feedback feedback-error" data-feedback role="alert" hidden></div>
+        <section class="content-panel">
+            <div class="filter-bar">
+                <label>Status<select id="status-filter"><option value="">All statuses</option><option>SUBMITTED</option><option>UNDER_REVIEW</option><option>ASSIGNED</option><option>IN_PROGRESS</option><option>RESOLVED</option><option>CLOSED</option><option>CANCELLED</option></select></label>
+                <label>Priority<select id="priority-filter"><option value="">All priorities</option><option>LOW</option><option>MEDIUM</option><option>HIGH</option><option>URGENT</option></select></label>
+                <span class="panel-count" data-count>Loading...</span>
+            </div>
+            <div class="loading-state" data-loading>Loading complaints...</div>
+            <div class="empty-state" data-empty hidden><span class="empty-icon">&#10003;</span><h3>No matching complaints</h3><p>Try changing the selected filters.</p></div>
+            <div class="complaints-table-wrap"><table class="complaints-table"><thead><tr><th>Complaint number</th><th>Category</th><th>Location</th><th>Student / user</th><th>Priority</th><th>Status</th><th>Created</th><th>Action</th></tr></thead><tbody data-complaint-rows></tbody></table></div>
+        </section>
+    </main>
+</div>
+<script th:src="@{/js/staff.js}"></script>
+</body>
+</html>

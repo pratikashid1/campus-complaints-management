@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CampusCare | GHRISTU</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+    <link rel="icon" type="image/png" th:href="@{/images/campuscare-logo.png}">
+</head>
+<body class="app-body" data-page="student-dashboard">
+<div class="app-layout">
+    <aside class="app-sidebar">
+        <a class="site-brand sidebar-brand" th:href="@{/student/dashboard}">
+            <span class="brand-mark brand-mark-small">CC</span><span>CampusCare</span>
+        </a>
+        <nav class="app-nav" aria-label="Student navigation">
+            <a class="nav-link is-active" href="/student/dashboard"><span>&#8962;</span>Dashboard</a>
+            <a class="nav-link" href="/student/complaints/new"><span>&#43;</span>Submit Complaint</a>
+            <a class="nav-link" href="/student/complaints"><span>&#9670;</span>My Complaints</a>
+            <a class="nav-link" href="/student/profile"><span>&#9678;</span>Profile</a>
+        </nav>
+        <button class="nav-link nav-button" data-logout type="button"><span>&#8618;</span>Logout</button>
+    </aside>
+    <main class="app-main">
+        <header class="mobile-app-header">
+            <a class="site-brand" href="/student/dashboard"><span class="brand-mark brand-mark-small">CC</span>CampusCare</a>
+            <button class="mobile-menu-button" data-menu-toggle type="button">&#9776;</button>
+        </header>
+        <section class="page-heading">
+            <div>
+                <p class="eyebrow">Student workspace</p>
+                <h1>Welcome, <span data-user-name>there</span>.</h1>
+                <p>Stay on top of your campus maintenance requests.</p>
+            </div>
+            <a class="button button-primary heading-action" href="/student/complaints/new">&#43; Submit New Complaint</a>
+        </section>
+        <div class="feedback feedback-error" data-feedback role="alert" hidden></div>
+        <section class="stat-grid" aria-label="Complaint summary">
+            <article class="stat-card"><span class="stat-label">Total complaints</span><strong data-stat="total">&mdash;</strong><span class="stat-icon stat-icon-blue">#</span></article>
+            <article class="stat-card"><span class="stat-label">Submitted</span><strong data-stat="submitted">&mdash;</strong><span class="stat-icon stat-icon-purple">&#9687;</span></article>
+            <article class="stat-card"><span class="stat-label">In progress</span><strong data-stat="in-progress">&mdash;</strong><span class="stat-icon stat-icon-orange">&rarr;</span></article>
+            <article class="stat-card"><span class="stat-label">Resolved</span><strong data-stat="resolved">&mdash;</strong><span class="stat-icon stat-icon-green">&#10003;</span></article>
+            <article class="stat-card"><span class="stat-label">Closed</span><strong data-stat="closed">&mdash;</strong><span class="stat-icon stat-icon-slate">&#9679;</span></article>
+        </section>
+        <section class="content-panel">
+            <div class="panel-heading"><div><p class="eyebrow">Latest activity</p><h2>Recent complaints</h2></div><a href="/student/complaints">View all</a></div>
+            <div class="loading-state" data-loading>Loading complaints...</div>
+            <div class="empty-state" data-empty hidden><span class="empty-icon">&#43;</span><h3>No complaints yet</h3><p>Submit your first maintenance complaint to get started.</p><a class="button button-primary" href="/student/complaints/new">Submit a complaint</a></div>
+            <div class="complaint-list" data-recent-list></div>
+        </section>
+        <section class="content-panel" data-notifications hidden>
+            <div class="panel-heading"><div><p class="eyebrow">Updates</p><h2>Unread notifications</h2></div></div>
+            <div class="notification-list" data-notification-list></div>
+        </section>
+    </main>
+</div>
+<script th:src="@{/js/student.js}"></script>
+</body>
+</html>

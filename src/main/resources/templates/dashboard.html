@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CampusCare | GHRISTU</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+    <link rel="icon" type="image/png" th:href="@{/images/campuscare-logo.png}">
+</head>
+<body data-page="dashboard">
+<header class="site-header">
+    <a class="site-brand" th:href="@{/dashboard}">
+        <span class="brand-mark brand-mark-small">CC</span>
+        <span>CampusCare</span>
+    </a>
+    <button id="logout-button" class="button button-outline" type="button">Sign out</button>
+</header>
+<main class="dashboard-shell">
+    <section class="welcome-card">
+        <div>
+            <p class="eyebrow">Student workspace</p>
+            <h1>Welcome, <span data-user-name>there</span>.</h1>
+            <p class="dashboard-copy">Your campus maintenance requests and updates will live here.</p>
+        </div>
+        <div class="welcome-icon" aria-hidden="true">&#10003;</div>
+    </section>
+    <section class="dashboard-grid">
+        <article class="dashboard-panel">
+            <span class="panel-icon">+</span>
+            <h2>Report a concern</h2>
+            <p>Submit a maintenance complaint when you spot something that needs attention.</p>
+            <span class="panel-note">Complaint tools coming next</span>
+        </article>
+        <article class="dashboard-panel">
+            <span class="panel-icon panel-icon-muted">&#9673;</span>
+            <h2>Track updates</h2>
+            <p>Follow the progress of your requests from submission to resolution.</p>
+            <span class="panel-note">Complaint tools coming next</span>
+        </article>
+    </section>
+</main>
+<script th:src="@{/js/auth.js}"></script>
+</body>
+</html>

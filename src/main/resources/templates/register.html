@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CampusCare | GHRISTU</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+    <link rel="icon" type="image/png" th:href="@{/images/campuscare-logo.png}">
+</head>
+<body data-page="register">
+<main class="auth-shell">
+    <section class="auth-intro">
+        <div class="brand-mark">CC</div>
+        <p class="eyebrow">Campus Maintenance</p>
+        <h1>Make campus better, together.</h1>
+        <p class="intro-copy">Create your student account to submit complaints and keep track of every update.</p>
+        <div class="intro-detail">
+            <span class="detail-dot"></span>
+            <span>Simple, transparent, and built for campus life</span>
+        </div>
+    </section>
+
+    <section class="auth-card" aria-labelledby="register-title">
+        <div class="mobile-brand">
+            <div class="brand-mark">CC</div>
+            <span>CampusCare<small class="brand-subtitle">Campus Maintenance &amp; Complaint Management System</small></span>
+        </div>
+        <div class="card-heading">
+            <p class="eyebrow">Get started</p>
+            <h2 id="register-title">Create your account</h2>
+            <p>Student accounts are ready in just a few steps.</p>
+        </div>
+
+        <div class="feedback feedback-error" data-feedback role="alert" hidden></div>
+        <div class="feedback feedback-success" data-success role="status" hidden></div>
+
+        <form id="register-form" class="auth-form" novalidate>
+            <label for="register-name">Full name</label>
+            <input id="register-name" name="name" type="text" autocomplete="name" placeholder="Test Student" required>
+            <span class="field-error" data-error-for="name"></span>
+
+            <label for="register-email">Email address</label>
+            <input id="register-email" name="email" type="email" autocomplete="email" placeholder="you@example.com" required>
+            <span class="field-error" data-error-for="email"></span>
+
+            <label for="register-password">Password</label>
+            <input id="register-password" name="password" type="password" autocomplete="new-password" placeholder="At least 6 characters" minlength="6" required>
+            <span class="field-error" data-error-for="password"></span>
+
+            <label for="register-confirm-password">Confirm password</label>
+            <input id="register-confirm-password" name="confirmPassword" type="password" autocomplete="new-password" placeholder="Re-enter your password" required>
+            <span class="field-error" data-error-for="confirmPassword"></span>
+
+            <button class="button button-primary" type="submit">
+                <span class="button-label">Create account</span>
+                <span class="button-spinner" aria-hidden="true"></span>
+            </button>
+        </form>
+
+        <p class="switch-auth">Already have an account? <a th:href="@{/login}">Login</a></p>
+    </section>
+</main>
+<script th:src="@{/js/auth.js}"></script>
+</body>
+</html>

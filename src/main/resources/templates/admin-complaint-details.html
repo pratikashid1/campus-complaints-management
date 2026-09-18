@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CampusCare | GHRISTU</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+    <link rel="icon" type="image/png" th:href="@{/images/campuscare-logo.png}">
+</head>
+<body class="app-body" data-page="admin-complaint-details">
+<div class="app-layout">
+    <aside class="app-sidebar">
+        <a class="site-brand sidebar-brand" href="/admin/dashboard"><span class="brand-mark brand-mark-small">CC</span><span>CampusCare</span></a>
+        <nav class="app-nav" aria-label="Admin navigation">
+            <a class="nav-link" href="/admin/dashboard"><span>&#8962;</span>Dashboard</a>
+            <a class="nav-link" href="/admin/users"><span>&#9678;</span>Users</a>
+            <a class="nav-link is-active" href="/admin/complaints"><span>&#9670;</span>Complaints</a>
+            <a class="nav-link" href="/admin/categories"><span>&#9646;</span>Categories</a>
+            <a class="nav-link" href="/admin/locations"><span>&#8982;</span>Locations</a>
+            <a class="nav-link" href="/admin/profile"><span>&#9673;</span>Profile</a>
+        </nav>
+        <button class="nav-link nav-button" data-logout type="button"><span>&#8618;</span>Logout</button>
+    </aside>
+    <main class="app-main">
+        <header class="mobile-app-header"><a class="site-brand" href="/admin/dashboard"><span class="brand-mark brand-mark-small">CC</span>CampusCare</a><button class="mobile-menu-button" data-menu-toggle type="button">&#9776;</button></header>
+        <a class="back-link" href="/admin/complaints">&#8592; Back to complaints</a>
+        <div class="feedback feedback-error" data-feedback role="alert" hidden></div>
+        <div class="feedback feedback-success" data-success role="status" hidden></div>
+        <div class="loading-state" data-loading>Loading complaint...</div>
+        <section class="content-panel details-panel" data-details hidden>
+            <div class="details-top"><div><p class="eyebrow">Complaint details</p><h1 data-detail="title">&mdash;</h1><span class="complaint-number" data-detail="complaintNumber">&mdash;</span></div><span class="status-badge large" data-detail-status>&mdash;</span></div>
+            <div class="details-grid compact-details">
+                <div><span class="detail-label">Category</span><strong data-detail="category">&mdash;</strong></div>
+                <div><span class="detail-label">Location</span><strong data-detail="location">&mdash;</strong></div>
+                <div><span class="detail-label">Student</span><strong data-detail="student">&mdash;</strong><small data-detail="studentEmail">&mdash;</small></div>
+                <div><span class="detail-label">Priority</span><span data-detail-priority>&mdash;</span></div>
+                <div><span class="detail-label">Created</span><strong data-detail="createdAt">&mdash;</strong></div>
+                <div><span class="detail-label">Updated</span><strong data-detail="updatedAt">&mdash;</strong></div>
+            </div>
+            <div class="description-block"><span class="detail-label">Description</span><p data-detail="description">&mdash;</p></div>
+        </section>
+        <section class="content-panel" data-actions hidden>
+            <div class="panel-heading"><div><p class="eyebrow">Workflow controls</p><h2>Manage complaint</h2></div></div>
+            <div class="form-grid">
+                <div class="form-field"><label for="admin-status-update">Next status</label><select id="admin-status-update"></select></div>
+                <div class="form-field"><label for="admin-status-remarks">Status remarks</label><input id="admin-status-remarks" maxlength="255" placeholder="Optional remarks"></div>
+                <div class="form-actions form-field-wide"><button class="button button-primary" data-status-update type="button">Update status</button></div>
+            </div>
+            <div class="assignment-box" data-assignment-box hidden>
+                <h3>Assign worker</h3><span class="panel-count">Select an active worker for this complaint.</span>
+                <div class="form-grid">
+                    <div class="form-field"><label for="admin-worker-select">Worker</label><select id="admin-worker-select"></select></div>
+                    <div class="form-field"><label for="admin-assignment-remarks">Assignment remarks</label><input id="admin-assignment-remarks" maxlength="255" placeholder="Optional remarks"></div>
+                    <div class="form-actions form-field-wide"><button class="button button-primary" data-assign-worker type="button">Assign worker</button></div>
+                </div>
+            </div>
+        </section>
+        <section class="content-panel" data-history-panel hidden>
+            <div class="panel-heading"><div><p class="eyebrow">Audit trail</p><h2>Status history</h2></div></div>
+            <div class="history-table-wrap"><table class="complaints-table"><thead><tr><th>Old status</th><th>New status</th><th>Changed by</th><th>Remarks</th><th>Date / time</th></tr></thead><tbody data-status-history></tbody></table></div>
+        </section>
+        <section class="content-panel" data-assignment-panel hidden>
+            <div class="panel-heading"><div><p class="eyebrow">Audit trail</p><h2>Assignment history</h2></div></div>
+            <div class="history-table-wrap"><table class="complaints-table"><thead><tr><th>Worker</th><th>Assigned by</th><th>Assigned date</th><th>End date</th><th>Remarks</th></tr></thead><tbody data-assignment-history></tbody></table></div>
+        </section>
+    </main>
+</div>
+<script th:src="@{/js/admin.js}"></script>
+</body>
+</html>

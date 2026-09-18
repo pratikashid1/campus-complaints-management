@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CampusCare | GHRISTU</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+    <link rel="icon" type="image/png" th:href="@{/images/campuscare-logo.png}">
+</head>
+<body data-page="login">
+<main class="auth-shell">
+    <section class="auth-intro">
+        <div class="brand-mark">CC</div>
+        <p class="eyebrow">Campus Maintenance</p>
+        <h1>Keep your campus moving.</h1>
+        <p class="intro-copy">Report maintenance concerns, follow progress, and stay connected with your campus support team.</p>
+        <div class="intro-detail">
+            <span class="detail-dot"></span>
+            <span>One place for every campus concern</span>
+        </div>
+    </section>
+
+    <section class="auth-card" aria-labelledby="login-title">
+        <div class="mobile-brand">
+            <div class="brand-mark">CC</div>
+            <span>CampusCare<small class="brand-subtitle">Campus Maintenance &amp; Complaint Management System</small></span>
+        </div>
+        <div class="card-heading">
+            <p class="eyebrow">Welcome back</p>
+            <h2 id="login-title">Sign in to your account</h2>
+            <p>Use your campus account to continue.</p>
+        </div>
+
+        <div class="feedback feedback-error" data-feedback role="alert" hidden></div>
+
+        <form id="login-form" class="auth-form" novalidate>
+            <label for="login-email">Email address</label>
+            <input id="login-email" name="email" type="email" autocomplete="email" placeholder="you@example.com" required>
+            <span class="field-error" data-error-for="email"></span>
+
+            <div class="label-row">
+                <label for="login-password">Password</label>
+            </div>
+            <input id="login-password" name="password" type="password" autocomplete="current-password" placeholder="Enter your password" required>
+            <span class="field-error" data-error-for="password"></span>
+
+            <button class="button button-primary" type="submit">
+                <span class="button-label">Sign in</span>
+                <span class="button-spinner" aria-hidden="true"></span>
+            </button>
+        </form>
+
+        <p class="switch-auth">Don't have an account? <a th:href="@{/register}">Register</a></p>
+    </section>
+</main>
+<script th:src="@{/js/auth.js}"></script>
+</body>
+</html>
